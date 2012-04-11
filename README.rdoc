@@ -1,0 +1,38 @@
+* génération du scaffold Produit
+> rails generate scaffold Product title:string description:text image_url:string
+
+* création de la base de données
+> rake db:migrate
+
+* Utilisation de la console (irb)
+> rails console
+> Product.all
+> p = Product.find(2)
+> p.title = "Truc"
+> p.save
+
+* Ajout d'un champ supplémentaire
+> rails g migration add_price_to_products price:decimal
+
+* Modification de la migration
+> add_column :products, :price, :decimale, :precision=>8, :scale=>2, :default=>0
+On réexécute la migration
+> rake db:migrate:redo
+
+* Ajout de validation sur le titre
+> validates_presence_of :title (dans le model product.rb)
++ autres validations
+
+* Création du store
+> rails g controller store index
+
+* Création de la table sessions dans la BDD
+> rake db:sessions:create
+> rake db:migrate
+
+* Création du panier
+> rails g scaffold Card
+
+* Création de LineItem
+> rails g scaffold LineItem card_id:integer product_id:integer
+> rake db:migrate

@@ -1,0 +1,29 @@
+<div class="span9">
+
+	<div class="hero-unit">
+		<h1>Bienvenue sur le site</h1>
+		<p>Tu es fan de dvd et de film. Tu trouvera ton bonheur ici !</p>
+	</div>
+
+	<ul class="thumbnails">
+		<% @products.each do |product| %>
+			<li class="span3">
+				<div class="thumbnail">
+					<%= image_tag "/system/product_image/"+ product.image_url %>
+					<div class="caption">
+						<h3><%= product.title %></h3>
+						<p><%= product.description %></p>
+						<p>
+							<b>Prix</b> : <%= euro_price(product.price) %>
+						</p>
+						<p>
+							<%= button_to 'Ajouter au panier', 
+								line_items_path(:product_id => product.id), 
+								:class=>"btn btn-primary" %>
+						</p>
+					</div>
+				</div>
+			</li>
+		<% end %>
+	</ul>
+</div>

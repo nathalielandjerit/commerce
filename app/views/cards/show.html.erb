@@ -1,0 +1,11 @@
+<div class="span9">
+<h2>Votre panier</h2>
+<ul class="thumbnails">
+<% @card.line_items.each do |line_item| %>
+
+	<li><%= line_item.product.title %></li>
+
+<% end %>
+</ul>
+</div>
+
