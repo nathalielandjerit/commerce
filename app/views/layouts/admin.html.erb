@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Commerce</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="#">Back Office</a>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li><%= link_to 'Front', store_index_path %></li>
+          <li class="active"><%= link_to 'Back', products_path %></li>
+          <li><%= link_to 'Blog', articles_path %></li>
+          <li><%= link_to 'Commande', orders_path %></li>
+
+          <% if current_user %>
+            <li class="email"><%= current_user.email %></li>
+            <li><%= link_to 'Deconnexion', session_url, :method => :delete %></li>
+          <% else %>
+            <li><%= link_to 'Connexion', new_session_url %></li>
+          <% end %>
+
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+
+<div class="container">
+<br/>
+  <% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+
+<%= yield %>
+
+</div>
+
+</body>
+</html>

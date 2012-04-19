@@ -572,7 +572,7 @@ pre code {
   overflow-y: scroll;
 }
 form {
-  margin: 0 0 18px;
+  margin: 0 0 0px;
 }
 fieldset {
   padding: 0;
@@ -1396,7 +1396,7 @@ table .span24 {
   height: 14px;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url("../img/glyphicons-halflings.png");
+  background-image: url("glyphicons-halflings.png");
   background-position: 14px 14px;
   background-repeat: no-repeat;
   *margin-right: .3em;
@@ -1406,7 +1406,7 @@ table .span24 {
   *margin-left: 0;
 }
 .icon-white {
-  background-image: url("../img/glyphicons-halflings-white.png");
+  background-image: url("glyphicons-halflings-white.png");
 }
 .icon-glass {
   background-position: 0      0;
@@ -1996,7 +1996,7 @@ table .span24 {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
   cursor: pointer;
   *margin-left: .3em;
-  margin-bottom:20px;
+  margin-bottom:0px;
 }
 .btn:hover,
 .btn:active,
@@ -3003,13 +3003,26 @@ input[type="submit"].btn.btn-mini {
   display: block;
   float: left;
 }
-.navbar .nav > li > a {
+.navbar .nav > li > a{
   float: none;
   padding: 10px 10px 11px;
   line-height: 19px;
   color: #999999;
   text-decoration: none;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.navbar .nav > li.email{
+  padding: 10px 10px 11px;
+  line-height: 19px;
+  color: #999999;
+  text-decoration: none;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.navbar .nav > li.lien_panier > a{
+  padding-right: 5px;
+}
+.montant_panier{
+  padding: 10px 10px 10px 0px;
 }
 .navbar .nav > li > a:hover {
   background-color: transparent;
@@ -3143,7 +3156,7 @@ input[type="submit"].btn.btn-mini {
   color: #333333;
 }
 .pagination {
-  height: 36px;
+  /*height: 36px;*/
   margin: 18px 0;
 }
 .pagination ul {
@@ -3164,13 +3177,29 @@ input[type="submit"].btn.btn-mini {
 .pagination li {
   display: inline;
 }
-.pagination a {
-  float: left;
-  padding: 0 14px;
+.pagination a,
+.pagination span,
+.pagination em {
+  /*float: left;*/
+  padding: 10px 15px 10px 15px;
   line-height: 34px;
   text-decoration: none;
   border: 1px solid #ddd;
   border-left-width: 0;
+}
+.pagination .previous_page{
+  border-left: 1px solid #ddd;
+  border-right:0px;
+}
+
+.pagination em, .pagination a {
+  border-left: 0 none;
+  border-right: 0 none;
+  margin-left: -4px;
+}
+
+.pagination .next_page{
+  border-right: 1px solid #ddd;
 }
 .pagination a:hover,
 .pagination .active a {

@@ -1,11 +1,32 @@
-<div class="span9">
-<h2>Votre panier</h2>
-<ul class="thumbnails">
-<% @card.line_items.each do |line_item| %>
 
-	<li><%= line_item.product.title %></li>
+<h2>Votre panier <%= link_to 'retour à la boutique', store_index_path, :class=>"btn btn-primary" %></h2>
 
-<% end %>
-</ul>
-</div>
+<table class="table">
+	<thead>
+		<th><b>Nom</b></th>		
+		<th><b>Quantité</b></th>
+		<th><b>Prix unitaire</b></th>
+		<th><b>total</b></th>
+		<th width="20px"></th>
+	</thead>
+	<% @card.line_items.each do |line_item| %>
+		<tr>
+			<td style="vertical-align:middle;"><%= image_tag "/system/product_image/"+ line_item.product.image_url, :width=>'50' %> <%= line_item.product.title %></td>
+			<td style="vertical-align:middle;"><%= line_item.quantity %></td>
+			<td style="vertical-align:middle;"><%= line_item.product.price %></td>
+			<td style="vertical-align:middle;"><%= line_item.total %></td>
+			<td style="vertical-align:middle;"><%= button_to 'X', line_item, :method => :delete, :class=>"btn btn-danger" %></td>
+		</tr>
+	<% end %>
+	<tfooter>
+		<td></td>
+		<td></td>				
+		<td style="text-align:right;"><b>Total de la commande</b></td>
+		<td><%= @card.total %></td>
+		<td></td>
+	</thead>
+</table>
+<p><%= link_to 'Passer la commande', new_order_path, :class=>"btn btn-primary" %></p>
+<%= button_to 'Supprimer le panier', @card, :method => :delete, :class=>"btn btn-danger" %>
+
 

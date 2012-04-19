@@ -1,0 +1,20 @@
+<h2>Login</h2>
+
+<%=form_tag(session_url) do %>
+
+	<fieldset>
+		<legend>Connectez vous</legend>
+		<div>
+			<label for="email">Email : </label>
+			<%= email_field_tag :email, params[:email] %>
+		</div>
+		<div>
+			<label for="password">Mot de passe : </label>
+			<%= password_field_tag :password, params[:password] %>
+		</div>
+		<div>
+			<%= submit_tag "Se connecter" %>
+		</div>
+	</fieldset>
+
+<% end %>

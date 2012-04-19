@@ -1,0 +1,46 @@
+<h2>Vue de la commande</h2>
+
+<p>
+  <b>Name:</b>
+  <%= @order.name %>
+</p>
+
+<p>
+  <b>Adresse:</b>
+  <%= @order.adresse %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @order.email %>
+</p>
+
+<p>
+  <b>Pay type:</b>
+  <%= @order.pay_type %>
+</p>
+
+<table class="table">
+	<thead>
+		<th><b>Nom</b></th>		
+		<th><b>Quantité</b></th>
+		<th><b>Prix unitaire</b></th>
+		<th><b>total</b></th>
+	</thead>
+	<% @order.line_items.each do |line_item| %>
+		<tr>
+			<td style="vertical-align:middle;"><%= image_tag "/system/product_image/"+ line_item.product.image_url, :width=>'50' %> <%= line_item.product.title %></td>
+			<td style="vertical-align:middle;"><%= line_item.quantity %></td>
+			<td style="vertical-align:middle;"><%= line_item.product.price %></td>
+			<td style="vertical-align:middle;"><%= line_item.total %></td>
+		</tr>
+	<% end %>
+	<tfooter>
+		<td></td>
+		<td></td>				
+		<td style="text-align:right;"><b>Total de la commande</b></td>
+		<td><%= @order.total %></td>
+	</thead>
+</table>
+
+<%= link_to 'Back', orders_path, :class => "btn btn-primary" %>

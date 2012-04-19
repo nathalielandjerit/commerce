@@ -3,11 +3,7 @@ class LineItemsController < ApplicationController
     def create
         @card = current_card
         product = Product.find(params[:product_id])
-        @line_item = LineItem.new
-        @line_item.card_id = @card.id
-        @line_item.product_id = product.id
-
-        @line_item.save
+        @line_item = @card.add_product(product.id)
 
         if @line_item.save
             flash[:notice] = "Le produit a ete ajoute au panier"
@@ -18,5 +14,11 @@ class LineItemsController < ApplicationController
         end
 
     end
+
+    def destroy
+    line_item = LineItem.find(params[:id])
+    line_item.destroy
+    redirect_to current_card
+  end
 
 end

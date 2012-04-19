@@ -11,18 +11,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120411140803) do
+ActiveRecord::Schema.define(:version => 20120413143241) do
 
-  create_table "cards", :force => true do |t|
+  create_table "articles", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "cards", :force => true do |t|
+    t.datetime "created_at",                                                :null => false
+    t.datetime "updated_at",                                                :null => false
+    t.decimal  "total",      :precision => 8, :scale => 2, :default => 0.0
   end
 
   create_table "line_items", :force => true do |t|
     t.integer  "card_id"
     t.integer  "product_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "quantity",   :default => 1
+    t.integer  "order_id"
+  end
+
+  create_table "orders", :force => true do |t|
+    t.string   "name"
+    t.text     "adresse"
+    t.string   "email"
+    t.string   "pay_type"
+    t.datetime "created_at",                                                :null => false
+    t.datetime "updated_at",                                                :null => false
+    t.decimal  "total",      :precision => 8, :scale => 2, :default => 0.0
   end
 
   create_table "products", :force => true do |t|
@@ -43,5 +63,13 @@ ActiveRecord::Schema.define(:version => 20120411140803) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "users", :force => true do |t|
+    t.string   "email"
+    t.string   "hashed_password"
+    t.string   "salt"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
 end

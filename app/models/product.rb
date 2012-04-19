@@ -20,4 +20,6 @@ class Product < ActiveRecord::Base
 						:with => %r{\.(gif|jpg|png)$}i, 
 						:message => 'doit etre en gif, jpg ou png'
 
+
+
 end

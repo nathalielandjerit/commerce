@@ -1,3 +1,22 @@
+  <div class="row-fluid">
+    <div class="span3">
+      <div class="well sidebar-nav">
+        <ul class="nav nav-list">
+          <li class="nav-header">Films</li>
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Aventure</a></li>
+          <li><a href="#">Famille</a></li>
+          <li><a href="#">Horreur</a></li>
+          <li class="nav-header">Séries tv</li>
+          <li><a href="#">Drame</a></li>
+          <li><a href="#">Humour</a></li>
+          <li><a href="#">Policier</a></li>
+          <li class="nav-header">Dessins animés</li>
+          <li><a href="#">Disney</a></li>
+          <li><a href="#">Pixar</a></li>
+        </ul>
+      </div><!--/.well -->
+    </div><!--/span-->
 <div class="span9">
 
 	<div class="hero-unit">
@@ -26,4 +45,5 @@
 			</li>
 		<% end %>
 	</ul>
+	<%= will_paginate @products %>
 </div>
