@@ -3,13 +3,12 @@ class ProductsController < ApplicationController
   # GET /products.json
   layout 'admin'
 
-  def index
-    @products = Product.paginate(:page => params[:page], :per_page => 8)
+  before_filter :authorize
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @products }
-    end
+  def index
+    #@products = Product.paginate(:page => params[:page], :per_page => 8)
+    @q = Product.search(params[:q])
+    @products = @q.result(:distinct => true).paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /products/1

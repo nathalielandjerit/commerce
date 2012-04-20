@@ -1,14 +1,18 @@
 class OrdersController < ApplicationController
 
-    layout 'admin'
+    layout 'admin', :except => :new
+
+    before_filter :authorize
 
     def new
-        if current_card.line_items.empty?
-            redirect_to '/store/index', :notice => "Votre panier est vide"
-        else
-            @order = Order.new
-        end
+    if current_cart.line_items.empty?
+      flash[:info] = "Your cart is empty!"
+      redirect_to '/store/index'
+    else
+      @order = Order.new
+      render :layout => 'application'
     end
+  end
 
     def create
         @order = Order.new(params[:order])
@@ -31,5 +35,15 @@ class OrdersController < ApplicationController
         @order = Order.find(params[:id])
         @orders = @order.line_items
     end
+
+    def destroy
+    @order = Order.find(params[:id])
+    if @order.destroy
+      flash[:succes] = "This order has been deleted"
+      redirect_to orders_url
+    else
+      flash[:error] = "Order not deleted"
+    end
+  end
 
 end

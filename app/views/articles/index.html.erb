@@ -1,4 +1,4 @@
-<h2>List Articles</h2>
+<!--<h2>List Articles</h2>
 <%= link_to "New Article", new_article_url, :class => 'btn btn-primary' %>
 <table class="table">
 	<thead>
@@ -13,4 +13,8 @@
 			<td width="70"><%= link_to "X", article, :method => :delete, :class => 'btn btn-danger', :confirm => "Are you sure ?" %> <%= link_to "M", edit_article_url(article), :class => 'btn btn-primary'%></td>
 		</tr>
 	<% end %>
-</table>
+</table>-->
+
+
+<%= render @articles %>
+<%= link_to "New Article", new_article_url, :class => 'btn btn-primary' %>

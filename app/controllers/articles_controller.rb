@@ -32,4 +32,8 @@ class ArticlesController < ApplicationController
     redirect_to articles_url
   end
 
+  def show
+    @article = Article.find(params[:id])
+  end
+
 end

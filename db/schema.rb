@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120413143241) do
+ActiveRecord::Schema.define(:version => 20120419131036) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -24,6 +24,19 @@ ActiveRecord::Schema.define(:version => 20120413143241) do
     t.datetime "created_at",                                                :null => false
     t.datetime "updated_at",                                                :null => false
     t.decimal  "total",      :precision => 8, :scale => 2, :default => 0.0
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "comments", :force => true do |t|
+    t.text     "body"
+    t.integer  "article_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "line_items", :force => true do |t|
@@ -45,6 +58,16 @@ ActiveRecord::Schema.define(:version => 20120413143241) do
     t.decimal  "total",      :precision => 8, :scale => 2, :default => 0.0
   end
 
+  create_table "photos", :force => true do |t|
+    t.integer  "product_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
   create_table "products", :force => true do |t|
     t.string   "title"
     t.text     "description"
@@ -52,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20120413143241) do
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
     t.decimal  "price",       :default => 0.0
+    t.integer  "category_id"
   end
 
   create_table "sessions", :force => true do |t|

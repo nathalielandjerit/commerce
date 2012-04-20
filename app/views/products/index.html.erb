@@ -26,6 +26,11 @@
 
 <div class="span6">
   <p><%= link_to 'New Product', new_product_path, :class=>'btn' %></p>
+  <%= search_form_for @q do |f| %>
+  <%= f.label :title_cont %>
+  <%= f.text_field :title_cont %>
+  <%= f.submit %>
+  <% end %>
   <ul class="thumbnails">
     <% @products.each do |product| %>
       <li class="span3">
@@ -34,6 +39,7 @@
           <div class="caption">
             <h3><%= product.title %></h3>
             <p><%= product.description %></p>
+            <p><b>Categorie : </b><%= product.category.name %></p>
             <p><b>Prix</b> : <%= euro_price(product.price) %></p>
             <p><%= link_to 'Show', product, :class=>"btn btn-primary" %> <%= link_to 'Edit', edit_product_path(product), :class=>"btn btn-primary" %> <%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete, :class=>"btn btn-primary" %></p>
           </div>

@@ -1,4 +1,6 @@
 Commerce::Application.routes.draw do
+  resources :categories
+
   get "admin/index"
 
   resource :session
@@ -13,8 +15,8 @@ Commerce::Application.routes.draw do
 
   get "store/index"
 
-  resources :products
-  resources :articles
+  resources :articles do resources :comments end
+  resources :products do resources :photos end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

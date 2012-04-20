@@ -15,6 +15,9 @@ group :production do
 end
 
 gem "will_paginate"
+gem "paperclip"
+gem "ransack"
+gem "squeel"
 
 # Gems used only for assets and not required
 # in production environments by default.

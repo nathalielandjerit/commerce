@@ -18,4 +18,13 @@ class ApplicationController < ActionController::Base
   		end
 	end
 
+private
+
+  def authorize
+    unless current_user
+      flash[:error] = "Vous devez etre connecte"
+      redirect_to root_url
+    end
+  end
+
 end

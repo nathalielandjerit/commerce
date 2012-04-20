@@ -24,6 +24,12 @@
           <li class="lien_panier"><%= link_to 'Panier', current_card %></li>
           <li class="montant_panier">(<%= current_card.total %> €)</li>
           <li><%= link_to 'BackOffice', products_path %></li>
+          <% if current_user %>
+            <li class="email"><%= current_user.email %></li>
+            <li><%= link_to 'Deconnexion', session_url, :method => :delete %></li>
+          <% else %>
+            <li><%= link_to 'Connexion', new_session_url %></li>
+          <% end %>
         </ul>
       </div><!--/.nav-collapse -->
     </div>

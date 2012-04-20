@@ -24,6 +24,8 @@
           <li class="active"><%= link_to 'Back', products_path %></li>
           <li><%= link_to 'Blog', articles_path %></li>
           <li><%= link_to 'Commande', orders_path %></li>
+          <li><%= link_to 'admin', admin_index_path %></li>
+          <li><%= link_to 'Categories', categories_path %></li>
 
           <% if current_user %>
             <li class="email"><%= current_user.email %></li>

@@ -1,5 +1,8 @@
 class AdminController < ApplicationController
-  def index
-  	@total_orders = Order.count
-  end
+
+	before_filter :authorize
+	
+	def index
+		@total_orders = Order.count
+	end
 end
