@@ -4024,3 +4024,15 @@ a.thumbnail:hover {
 .invisible {
   visibility: hidden;
 }
+
+
+/******************SHOW PRODUCT*********************/
+.image_film{
+  float:left;
+  width : 220px;
+  margin-right:10px;
+}
+
+.image_film p.grande img{
+  width : 100%;
+}

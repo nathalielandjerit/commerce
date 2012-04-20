@@ -18,6 +18,8 @@ gem "will_paginate"
 gem "paperclip"
 gem "ransack"
 gem "squeel"
+gem "devise"
+gem "omniauth"
 
 # Gems used only for assets and not required
 # in production environments by default.

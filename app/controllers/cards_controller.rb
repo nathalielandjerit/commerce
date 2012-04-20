@@ -10,7 +10,8 @@ class CardsController < ApplicationController
   def destroy
   	@cards = Card.find(params[:id])
   	@cards.destroy
-  	redirect_to "/store/index"
+    flash[:success] = "votre panier est vide"
+  	redirect_to root_url
   end
 
 end

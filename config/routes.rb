@@ -1,22 +1,19 @@
 Commerce::Application.routes.draw do
-  resources :categories
 
-  get "admin/index"
-
-  resource :session
-
-  resources :users
-
-  resources :orders
-
+  devise_for :users
+  resources :orders, :only => [:new, :create]
   resources :line_items
-
   resources :cards
-
-  get "store/index"
-
   resources :articles do resources :comments end
-  resources :products do resources :photos end
+
+  namespace :admin do
+    resources :categories
+    resources :users
+    resources :orders    
+    resources :products do resources :photos end
+    resources :articles do resources :comments end
+    root :to => "admin#index"
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

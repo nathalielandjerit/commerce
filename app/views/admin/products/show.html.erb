@@ -1,0 +1,36 @@
+<div class="image_film">
+<p class="grande"><%= image_tag "/system/product_image/"+ @product.image_url %></p>
+
+<p>
+  <% @product.photos.each do |photo| %>
+  <%= image_tag photo.image.url(:thumb) %>
+  <% end %>
+</p>
+
+<p><%= link_to 'ajouter une photo', new_admin_product_photo_url(@product), :class=>"btn btn-primary" %></p>
+
+</div>
+
+<div>
+<h2>
+  <%= @product.title %>
+</h2>
+
+<p>
+  <b>Price:</b>
+  <%= @product.price %> €
+</p>
+
+<p>
+  <b>Categorie:</b>
+  <%= @product.category.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @product.description %>
+</p>
+
+<%= link_to 'Edit', edit_admin_product_url(@product), :class=>"btn btn-primary" %> |
+<%= link_to 'Back', admin_products_url, :class=>"btn btn-primary" %>
+</div>

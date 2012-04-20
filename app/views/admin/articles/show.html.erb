@@ -1,0 +1,19 @@
+<%= render @article %>
+
+<h3><%= pluralize(@article.comments.count, "commentaire") %></h3>
+
+
+<%= form_for [@article,Comment.new] do |f| %>
+
+	<fieldset>
+		<legend>Ecrire un commentaire</legend>
+		<%= f.text_area :body, :rows => '3' %><br/>
+		<%= f.submit %>
+	</fieldset>
+
+<% end %>
+<table id="commentaire" class="table">
+<%= render @article.comments %>
+</table>
+
+<%= link_to "back", admin_articles_url, :class => 'btn btn-primary' %>

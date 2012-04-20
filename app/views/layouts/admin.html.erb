@@ -20,18 +20,18 @@
       <a class="brand" href="#">Back Office</a>
       <div class="nav-collapse">
         <ul class="nav">
-          <li><%= link_to 'Front', store_index_path %></li>
-          <li class="active"><%= link_to 'Back', products_path %></li>
-          <li><%= link_to 'Blog', articles_path %></li>
-          <li><%= link_to 'Commande', orders_path %></li>
-          <li><%= link_to 'admin', admin_index_path %></li>
-          <li><%= link_to 'Categories', categories_path %></li>
+          <li><%= link_to 'Front', root_url %></li>
+          <li class="active"><%= link_to 'Back', admin_products_url %></li>
+          <li><%= link_to 'Blog', admin_articles_url %></li>
+          <li><%= link_to 'Commande', admin_orders_url %></li>
+          <li><%= link_to 'Categories', admin_categories_url %></li>
 
           <% if current_user %>
             <li class="email"><%= current_user.email %></li>
-            <li><%= link_to 'Deconnexion', session_url, :method => :delete %></li>
+            <li><%= link_to 'Deconnexion', destroy_user_session_url, :method => :delete %></li>
           <% else %>
-            <li><%= link_to 'Connexion', new_session_url %></li>
+            <li><%= link_to 'Connexion', new_user_session_url %></li>
+            <li><%= link_to 'S\'inscrire', new_user_registration_url %></li>
           <% end %>
 
         </ul>

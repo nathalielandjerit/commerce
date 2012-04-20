@@ -20,15 +20,16 @@
       <a class="brand" href="#">Achète des dvd</a>
       <div class="nav-collapse">
         <ul class="nav">
-          <li class="active"><%= link_to 'Home', store_index_path %></li>
+          <li class="active"><%= link_to 'Home', root_url %></li>
           <li class="lien_panier"><%= link_to 'Panier', current_card %></li>
           <li class="montant_panier">(<%= current_card.total %> €)</li>
-          <li><%= link_to 'BackOffice', products_path %></li>
+          <li><%= link_to 'BackOffice', admin_products_url %></li>
           <% if current_user %>
             <li class="email"><%= current_user.email %></li>
-            <li><%= link_to 'Deconnexion', session_url, :method => :delete %></li>
+            <li><%= link_to 'Deconnexion', destroy_user_session_url, :method => :delete %></li>
           <% else %>
-            <li><%= link_to 'Connexion', new_session_url %></li>
+            <li><%= link_to 'Connexion', new_user_session_url %></li>
+            <li><%= link_to 'S\'inscrire', new_user_registration_url %></li>
           <% end %>
         </ul>
       </div><!--/.nav-collapse -->

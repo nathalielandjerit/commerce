@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
 
-	before_filter :authorize
+	layout 'admin'
 	
 	def index
 		@total_orders = Order.count
